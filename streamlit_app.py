@@ -8,12 +8,12 @@ tfidf, model = load()
 
 text = st.text_area("Вставьте текст:", height=200)
 s = len(text.strip())
-st.caption(f"Символов: {s} (допустимо: 50-3000)")
+st.caption(f"Символов: {s} (допустимо: 150-3000)")
 if st.button("Проверить текст", type="primary"):
     if not text.strip():
         st.warning("Текст не введён")
-    elif s < 50:
-        st.warning(f"Текст слишком короткий, минимум 50 символов")
+    elif s < 150:
+        st.warning(f"Текст слишком короткий, минимум 150 символов")
     elif s > 3000:
         st.warning(f"Текст слишком длинный, максимум 3000 символов")
     else:
