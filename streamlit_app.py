@@ -3,17 +3,17 @@ import joblib
 
 @st.cache_resource
 def load():
-    return joblib.load('tfidf.pkl'), joblib.load('model.pkl')
+    return joblib.load('tfidf1.pkl'), joblib.load('model1.pkl')
 tfidf, model = load()
 
 text = st.text_area("Вставьте текст:", height=200)
 s = len(text.strip())
-st.caption(f"Символов: {s} (допустимо: 300-5000)")
+st.caption(f"Символов: {s} (допустимо: 150-5000)")
 if st.button("Проверить текст", type="primary"):
     if not text.strip():
         st.warning("Текст не введён")
-    elif s < 300:
-        st.warning(f"Текст слишком короткий, минимум 300 символов")
+    elif s < 150:
+        st.warning(f"Текст слишком короткий, минимум 150 символов")
     elif s > 5000:
         st.warning(f"Текст слишком длинный, максимум 5000 символов")
     else:
